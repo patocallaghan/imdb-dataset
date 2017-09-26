@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "imdb/rails/version"
+require "imdb/datasets/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "imdb-rails"
-  spec.version       = Imdb::Rails::VERSION
+  spec.name          = "imdb-datasets"
+  spec.version       = Imdb::Datasets::VERSION
   spec.authors       = ["Pat O'Callaghan"]
   spec.email         = ["patocallaghan@gmail.com"]
 
-  spec.summary       = %q{RubyGem to download IMDB datadumps and load into a Rails application.}
-  spec.description   = %q{RubyGem to download IMDB datadumps and load into a Rails application.}
-  spec.homepage      = "https://www.github.com/patocallaghan/imdb-rails"
+  spec.summary       = %q{RubyGem to download IMDB datasets and extract them.}
+  spec.description   = %q{RubyGem to download IMDB datasets and extract them.}
+  spec.homepage      = "https://www.github.com/patocallaghan/imdb-datasets"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
