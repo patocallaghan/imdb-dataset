@@ -15,7 +15,7 @@ module Imdb
             :logger => Logger.new($stdout),
             :http_wire_trace => true
           )
-          DATASETS.each do |dataset|
+          datasets.each do |dataset|
             filename = "#{dataset}.tsv.gz"
             client.get_object({
               response_target: "imdb_datasets/#{filename}",
