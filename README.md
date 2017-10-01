@@ -1,5 +1,7 @@
 # Imdb::Datasets
 
+[ ![Codeship Status for patocallaghan/imdb-datasets](https://app.codeship.com/projects/999a0af0-86d9-0135-dfbb-66311f7cf82a/status?branch=master)](https://app.codeship.com/projects/248236)
+
 ## Installation
 
 Add this line to your application's Gemfile:
