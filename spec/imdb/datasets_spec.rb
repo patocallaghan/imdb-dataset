@@ -10,7 +10,11 @@ RSpec.describe Imdb::Datasets do
       let(:datasets) { nil }
 
       it "fetches each dataset" do
-        expect(Aws::S3::Client).to receive(:new).and_call_original
+        expect(Aws::S3::Client).to receive(:new).with(hash_including(
+          region: 'us-east-1',
+          access_key_id: "123456",
+          secret_access_key: "ABCDEF",
+        )).and_call_original
         expect_any_instance_of(Aws::S3::Client).to receive(:get_object).with(hash_including(
           bucket: "imdb-datasets",
           request_payer: "requester"
@@ -79,6 +83,15 @@ RSpec.describe Imdb::Datasets do
         )).at_most(:once)
         subject.fetch(datasets: datasets)
       end
+    end
+  end
+
+  around do |example|
+    ClimateControl.modify({
+      AWS_ACCESS_KEY_ID: "123456",
+      AWS_SECRET_ACCESS_KEY: "ABCDEF",
+    }) do
+      example.run
     end
   end
 end
