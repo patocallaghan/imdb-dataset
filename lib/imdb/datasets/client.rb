@@ -15,6 +15,7 @@ module Imdb
             :logger => Logger.new($stdout),
             :http_wire_trace => true
           )
+          create_output_directory('imdb_datasets')
           datasets.each do |dataset|
             filename = "#{dataset}.tsv.gz"
             client.get_object({
@@ -24,6 +25,10 @@ module Imdb
               request_payer: "requester",
             })
           end
+        end
+
+        def create_output_directory(directory_name)
+          FileUtils.mkdir_p(directory_name)
         end
       end
     end
